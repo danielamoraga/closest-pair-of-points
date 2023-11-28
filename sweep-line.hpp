@@ -1,4 +1,3 @@
-
 #include <algorithm>
 #include <vector>
 #include <bits/stdc++.h>
@@ -8,8 +7,7 @@ using namespace std;
     space and stop on the spots of interest */
 
 // To find the closest pair of points
-long closestPair(vector<pair<int, int> > coordinates, int n)
-{
+long closestPair(vector<pair<int, int> > coordinates, int n) {
 	int i;
 	// Vector pair to store points on plane
 	vector<pair<int, int>> v;
