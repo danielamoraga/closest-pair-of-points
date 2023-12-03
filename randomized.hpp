@@ -1,9 +1,15 @@
-#include <algorithm>
-#include <vector>
-#include <bits/stdc++.h>
-#include <unordered_map>
+#include "structure.hpp"
 using namespace std;
 
+
+// Función para calcular la distancia entre dos puntos
+long calculateDistance(pair<int, int> p1, pair<int, int> p2) {
+    return (p1.first - p2.first) * (p1.first - p2.first) +
+           (p1.second - p2.second) * (p1.second - p2.second);
+}
+
+
+//--------------------------------------------------------------------------------------------
 struct PairHash {
     template <class T1, class T2>
     size_t operator () (const std::pair<T1, T2>& p) const {

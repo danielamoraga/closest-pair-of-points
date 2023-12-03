@@ -1,16 +1,19 @@
 #include "sweep-line.hpp"
-#include "randomized.hpp"
+using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-    // Generar n puntos pertenecientes al rango [0, 1) x [0, 1)
-    
-    vector<pair<int, int>> coordinates(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> coordinates[i].first >> coordinates[i].second;
-    }
 
-    cout << closestPair(coordinates, n) << endl;
-    return 0;
+int main()
+{
+
+	// Points on a plane P[i] = {x, y}
+	vector<pair<int, int> > P = {
+		{ 1, 2 }, { 2, 3 }, { 3, 4 }, { 5, 6 }, { 2, 1 }
+	};
+	int n = P.size();
+	
+	// Function call
+	ClosestPairResult result = closestPair(P, n);
+    cout << "The smallest distance is " << result.distance << endl;
+    cout << "The closest pair of points are (" << result.point1.first << ", " << result.point1.second << ") and (" << result.point2.first << ", " << result.point2.second << ")" << endl;
+	return 0;
 }
