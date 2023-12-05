@@ -48,22 +48,22 @@ void measureExecutionTime(int n, int iteration) {
 
     // Print the execution time
     // Write the execution time in the file
-    // Open file, named as results + the number of the iteration
+    // Open file, named as results_n 
     ofstream myfile;
-    string filename = "results/resultado_" + to_string(iteration) + ".txt";
-    myfile.open(filename);
+    auto filename = "results/resultado_" + to_string(n) + ".txt";
+    cout << filename << endl;
+    myfile.open(filename, ios::app);
     myfile << iteration << "," << duration << endl;
     myfile.close();
 }
 
 int main() {
     //Abre un archivo para escribir los resultados
-    long int n = 50000;
+    long int n = 5000;
     int iterations = 10;
     cout << "Starting the execution" << endl;
-    for (int i = 0; i < 5; i++) {
-        cout << "Iteration " << i << endl;
-        measureExecutionTime(n, iterations);
+    for (int i = 1; i <= iterations; i++) {
+        measureExecutionTime(n, i);
 
     }
     return 0;
