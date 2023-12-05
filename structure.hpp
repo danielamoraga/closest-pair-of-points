@@ -9,7 +9,7 @@
 using namespace std;
 
 struct ClosestPairResult {
-    double distance;
-    pair<int, int> point1;
-    pair<int, int> point2;
+    float distance;
+    pair<float, float> point1;
+    pair<float, float> point2;
 };

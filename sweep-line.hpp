@@ -1,9 +1,9 @@
 #include "structure.hpp"
 using namespace std;
-ClosestPairResult closestPair(vector<pair<int, int>> coordinates, int n)
+ClosestPairResult closestPair(vector<pair<float, float>> coordinates, int n)
 {
     // Vector pair para almacenar puntos en el plano
-    vector<pair<int, int>> v;
+    vector<pair<float, float>> v;
     for (int i = 0; i < n; i++)
         v.push_back({coordinates[i].first, coordinates[i].second});
 
@@ -15,7 +15,7 @@ ClosestPairResult closestPair(vector<pair<int, int>> coordinates, int n)
     result.distance = INT_MAX;
 
     // Mantener los puntos en orden creciente
-    set<pair<int, int>> st;
+    set<pair<float, float>> st;
     st.insert({v[0].first, v[0].second});
 
     for (int i = 1; i < n; i++) {
@@ -25,8 +25,8 @@ ClosestPairResult closestPair(vector<pair<int, int>> coordinates, int n)
             continue;
 
         for (auto p = l; p != r; p++) {
-            pair<int, int> val = *p;
-            long int dis = (v[i].first - val.first) * (v[i].first - val.first) +
+            pair<float, float> val = *p;
+            float dis = (v[i].first - val.first) * (v[i].first - val.first) +
                        (v[i].second - val.second) * (v[i].second - val.second);
 
             // Actualizar la distancia mínima y los puntos correspondientes
