@@ -23,7 +23,7 @@ en sus implementacionesse asemejan a lo conocido por la teoría.*/
 
 
 // Mide la ejecución de un algoritmo para un valor de n, generando n puntos aleatorios
-void measureExecutionTime(int n, int iterations, ofstream &myfile) {
+void measureExecutionTime(int n, int iteration) {
     
     vector<pair<float, float>> coordinates;
     
@@ -47,23 +47,24 @@ void measureExecutionTime(int n, int iterations, ofstream &myfile) {
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
 
     // Print the execution time
-    cout << iterations << " " << duration << endl;
     // Write the execution time in the file
-    myfile << iterations << " " << duration << endl;
+    // Open file, named as results + the number of the iteration
+    ofstream myfile;
+    string filename = "results/resultado_" + to_string(iteration) + ".txt";
+    myfile.open(filename);
+    myfile << iteration << "," << duration << endl;
+    myfile.close();
 }
 
 int main() {
     //Abre un archivo para escribir los resultados
-    ofstream myfile;
-    myfile.open ("results.txt");
-    long int n = 5000000;
+    long int n = 50000;
     int iterations = 10;
     cout << "Starting the execution" << endl;
-    for (int i = 0; i < iterations; i++) {
+    for (int i = 0; i < 5; i++) {
         cout << "Iteration " << i << endl;
-        measureExecutionTime(n, iterations, myfile);
+        measureExecutionTime(n, iterations);
 
     }
-    myfile.close();
     return 0;
 }
