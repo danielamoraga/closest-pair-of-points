@@ -59,12 +59,12 @@ void measureExecutionTime(int n, int iteration) {
 
 int main() {
     //Abre un archivo para escribir los resultados
-    long int n = 15000000;
+    long int n = 20000000;
     int iterations = 1;
     cout << "Starting the execution" << endl;
     for (int j = n; j <= 50000000; j+=5000000) {
         for (int i = 1; i <= iterations; i++) {
-            measureExecutionTime(n, i);
+            measureExecutionTime(j, i);
         }
     }
     return 0;
