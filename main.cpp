@@ -21,7 +21,6 @@ void measureExecutionTime(int n, int iteration) {
     // Genera n puntos aleatorios
     for (int i = 0; i < n; i++) {
         coordinates.push_back({dis(g), dis(g)});
-        // cout << "(" << coordinates[i].first << " ," << coordinates[i].second << ")" << endl;
     }
 
     // Run the algorithm and measure the execution time
